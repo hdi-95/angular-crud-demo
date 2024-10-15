@@ -1,0 +1,46 @@
+<h2 mat-dialog-title class="dialog-title">
+
+    @if (editMode) {
+    Editer
+    } @else {
+    Ajouter
+    }
+
+    une demande d'autorisation</h2>
+<mat-dialog-content class="dialog-content">
+
+    <div [formGroup]="requestFormGroup" class="form-container">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Projet de travaux </mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Utilisateur </mat-label>
+            <input matInput formControlName="user">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Contrat</mat-label>
+            <input matInput formControlName="contract">
+        </mat-form-field>
+
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-stroked-button (click)="onNoClick()">Annuler</button>
+    <button mat-flat-button (click)="saveRequest()" [disabled]="!requestFormGroup.valid || loading">
+        <div class="loading-button">
+            @if (loading) {
+            <mat-progress-spinner mode="indeterminate" diameter="20"></mat-progress-spinner>
+            }
+            @else {
+            <mat-icon>save</mat-icon>
+            }
+            Enregistrer
+        </div>
+
+    </button>
+</mat-dialog-actions>

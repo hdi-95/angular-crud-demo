@@ -1,0 +1,40 @@
+/* Add application styles & imports to this file! */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --primary-color: #155eef;
+  --neutral-900: #121926;
+  --neutral-700: #364152;
+  --neutral-600: #4b5565;
+  --neutral-500: #f8fafc;
+  --neutral-100: #eef2f6;
+  --theme-color: white;
+}
+
+[data-theme="dark"] {
+  --primary-color: #9a97f3;
+  --neutral-500: #364152;
+  --neutral-100: #121926;
+  --theme-color: black;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  color: var(--neutral-900);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  color: var(--neutral-600);
+  font-size: 14px;
+}

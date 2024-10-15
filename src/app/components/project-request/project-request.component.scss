@@ -1,0 +1,75 @@
+.project-request {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--theme-color);
+  padding: 20px;
+  box-shadow: 0px 8px 16px #4b556505;
+  border-radius: 10px;
+  margin-top: 15px;
+
+  .left-content,
+  .right-content {
+    display: flex;
+  }
+
+  .request-icon {
+    width: 50px;
+    margin-right: 12px;
+
+    .circle {
+      width: 48px;
+      height: 48px;
+      background-color: #e0f2fe;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .name {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .user-contract-content {
+    display: flex;
+    column-gap: 8px;
+  }
+
+  .user {
+    color: #fcfcfd;
+    background-color: var(--neutral-700);
+    padding: 4px 12px 3px 12px;
+    border-radius: 6px;
+  }
+  .contract {
+    color: #363f72;
+    background-color: var(--neutral-100);
+    padding: 4px 12px 3px 12px;
+    border-radius: 6px;
+  }
+
+  .status-menu-container {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    column-gap: 20px;
+
+    .status {
+      color: #dc6803;
+      background-color: #fef0c7;
+      border-radius: 14px;
+      min-width: 80px;
+      min-height: 28px;
+      text-align: center;
+      line-height: 28px;
+      padding: 0 5px;
+
+      &.approved {
+        background-color: #14a99d;
+        color: white;
+      }
+    }
+  }
+}

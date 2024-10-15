@@ -1,0 +1,24 @@
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 55px;
+}
+
+.empty-list {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-request-list {
+  padding: 0 55px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: calc(100vh - 190px);
+}
+
+.paginator {
+  background-color: transparent;
+}

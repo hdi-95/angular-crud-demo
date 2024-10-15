@@ -1,0 +1,19 @@
+<div class="app-crud-demo">
+    @if (app_loading) {
+    <div class="app-loader">
+        <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+    </div>
+    }
+
+    @else {
+
+    <app-toolbar></app-toolbar>
+
+    <div class="app-content">
+        <div class="app-page">
+            <app-requests-page></app-requests-page>
+        </div>
+    </div>
+
+    }
+</div>

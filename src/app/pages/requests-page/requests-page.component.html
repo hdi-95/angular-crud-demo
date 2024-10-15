@@ -1,0 +1,35 @@
+<div class="request-header">
+    <div>
+        <div class="poppins">Liste des demandes</div>
+        <div class="inter">Gérer les demandes d'autorisation de travaux.</div>
+    </div>
+
+    <button mat-flat-button (click)="openRequestDialog()">
+        <mat-icon>add</mat-icon>
+        Ajouter
+    </button>
+</div>
+
+
+<ng-container *ngIf="(requestProjects$ | async) as requestProjects">
+
+    <div class="project-request-list">
+        @for (requestProject of requestProjects | slice: pageIndex*pageSize : (pageIndex+1)* pageSize; track
+        requestProject.id) {
+        <app-project-request [projectRequest]="requestProject" (deleteEvent)="delete($event)"
+            (approveEvent)="approve($event)">
+
+        </app-project-request>
+        } @empty {
+        <div class="empty-list inter">Aucune demande</div>
+        }
+
+    </div>
+
+    @if(requestProjects.length > 0) {
+    <mat-paginator class="paginator" [disabled]="requestProjects.length < 2 " [length]="requestProjects.length"
+        (page)="handlePageEvent($event)" [pageSize]="pageSize" [pageIndex]="pageIndex">
+    </mat-paginator> }
+
+
+</ng-container>

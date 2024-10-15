@@ -1,0 +1,70 @@
+<div class="project-request">
+
+    <div class="left-content">
+
+        <div class="request-icon">
+            <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18.869" height="22">
+                    <path data-name="Tracé 286"
+                        d="M17 8.5V5.8a7.453 7.453 0 0 0-.327-3.162 3 3 0 0 0-1.311-1.311A7.453 7.453 0 0 0 12.2 1H5.8a7.453 7.453 0 0 0-3.162.327 3 3 0 0 0-1.311 1.311A7.453 7.453 0 0 0 1 5.8v10.4a7.453 7.453 0 0 0 .327 3.162 3 3 0 0 0 1.311 1.311A7.453 7.453 0 0 0 5.8 21H11m0-11H5m2 4H5m8-8H5m8.5 8a2.248 2.248 0 0 1 4.369.75c0 1.5-2.248 2.248-2.248 2.248m.029 3h.01"
+                        fill="none" stroke="#0086c9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+            </div>
+        </div>
+
+        <div>
+            <div class="inter">Demande d'autorisation de travaux</div>
+            <div class="name poppins">{{projectRequest.name}}</div>
+            <div class="user-contract-content inter">
+                <div class="user">{{projectRequest.user}}</div>
+                @if(projectRequest.contract) {
+                <div class="contract">{{'Contrat ' + projectRequest.contract}}</div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <div class="right-content">
+
+        <div class="status-menu-container">
+            <div class="status" [ngClass]="{'approved': projectRequest.status === 'APPROVED'}">
+                @switch (projectRequest.status) {
+                @case ("AWAITING_APPROVAL") {
+                En attente d'approbation
+                }
+                @case ("APPROVED") {
+                Approuvé
+                }
+                }
+            </div>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="edit()">
+                    <mat-icon>edit</mat-icon>
+                    <span>Editer</span>
+                </button>
+                <button mat-menu-item (click)="delete()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Supprimer</span>
+                </button>
+
+                @if (projectRequest.status !== 'APPROVED') {
+                <button mat-menu-item (click)="approve()">
+                    <mat-icon>done</mat-icon>
+                    <span>Approuver</span>
+                </button>
+                }
+
+            </mat-menu>
+
+        </div>
+
+
+    </div>
+
+</div>

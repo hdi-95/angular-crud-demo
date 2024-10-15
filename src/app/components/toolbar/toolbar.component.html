@@ -1,0 +1,38 @@
+<mat-toolbar class="app-toolbar">
+
+    <button mat-icon-button [matMenuTriggerFor]="app_menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #app_menu="matMenu">
+
+        <button mat-menu-item rou>
+            <mat-icon>account_circle</mat-icon>
+            <a href="https://www.linkedin.com/in/mehdi-houalef/" target='_blank'>Mon Linkedin</a>
+        </button>
+
+    </mat-menu>
+
+    <span>Angular CRUD Demo</span>
+    <span class="spacer"></span>
+
+    <button mat-button matSuffix style="float: right;" [matMenuTriggerFor]="settings_menu">
+        <mat-icon style="vertical-align: sub;">settings</mat-icon>
+    </button>
+
+    <mat-menu #settings_menu="matMenu">
+
+        <button mat-menu-item (click)="save()">
+            <mat-icon>save</mat-icon>
+            Sauvegarder
+        </button>
+
+        @if ({ darkMode: darkMode$ | async }; as viewMode) {
+        <button mat-menu-item (click)="toogleNightMode(viewMode.darkMode)">
+            <mat-icon>{{viewMode.darkMode ? 'light_mode':'dark_mode'}}</mat-icon>
+            {{viewMode.darkMode ? 'Mode clair':'Mode sombre'}}
+        </button>
+        }
+    </mat-menu>
+
+</mat-toolbar>
