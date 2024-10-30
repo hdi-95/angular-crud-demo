@@ -44,14 +44,14 @@ export class RequestsPageComponent implements OnInit {
   public pageSize: number = 4;
 
   ngOnInit(): void {
-    this.getDataFromLocalStorage();
+    this.initDataFromLocalStorage();
   }
 
-  getDataFromLocalStorage(): void {
-    let requestProjectsPref = getPref(PrefKeys.PROJECT_REQUESTS) || null;
+  initDataFromLocalStorage(): void {
+    let requestProjectsPref = getPref(PrefKeys.PROJECT_REQUESTS);
 
     let requestProjects: ProjectRequest[] =
-      requestProjectsPref && JSON.parse(requestProjectsPref);
+      requestProjectsPref != "none" && JSON.parse(requestProjectsPref);
 
     if (requestProjects.length >= 1) {
       this.appFacade.setProjectRequests(requestProjects);

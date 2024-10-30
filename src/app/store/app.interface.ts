@@ -21,18 +21,3 @@ export interface IAppState {
   [StateNamesEnum.CORE_STATE_NAME]: ICore;
   [StateNamesEnum.PROJECT_REQUEST_STATE_NAME]: IProjectRequests;
 }
-
-// retry
-
-/* export interface IApp {
-  darkMode: boolean;
-}
-
-export interface IAppState {
-  AppState: IApp;
-}
-
-export const initialAppState: IApp = {
-  darkMode: false,
-};
- */

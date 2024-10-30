@@ -16,22 +16,22 @@ import { ProjectRequest } from "../../models/request.model";
 })
 export class ProjectRequestComponent {
   @Input({ required: true }) projectRequest!: ProjectRequest;
-  @Output() deleteEvent = new EventEmitter<number>();
-  @Output() approveEvent = new EventEmitter<ProjectRequest>();
+  @Output() delete = new EventEmitter<number>();
+  @Output() approve = new EventEmitter<ProjectRequest>();
 
   readonly dialog = inject(MatDialog);
 
-  edit(): void {
+  editProjectRequest(): void {
     this.dialog.open(RequestDialogComponent, {
       data: { request: this.projectRequest },
     });
   }
 
-  delete(): void {
-    this.deleteEvent.emit(this.projectRequest.id);
+  deleteProjectReques(): void {
+    this.delete.emit(this.projectRequest.id);
   }
 
-  approve(): void {
-    this.approveEvent.emit(this.projectRequest);
+  approveProjectReques(): void {
+    this.approve.emit(this.projectRequest);
   }
 }

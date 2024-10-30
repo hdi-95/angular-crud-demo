@@ -23,6 +23,7 @@ import { interval, map, take } from "rxjs";
 import { ProjectRequest } from "../../models/request.model";
 import { AppFacade } from "../../store/app.facade";
 import { ModelFormGroup } from "../../utils/formcontol.utils";
+import { generateUniqueId } from "../../utils/helper";
 
 export interface DialogData {
   request: ProjectRequest;
@@ -110,7 +111,7 @@ export class RequestDialogComponent implements OnInit {
           });
         } else {
           this.appFacade.addProjectRequest({
-            id: this.projectRequests.length + 1,
+            id: generateUniqueId(),
             ...formValue,
             status: "AWAITING_APPROVAL",
           });

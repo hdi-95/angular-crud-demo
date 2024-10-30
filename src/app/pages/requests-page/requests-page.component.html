@@ -16,8 +16,7 @@
     <div class="project-request-list">
         @for (requestProject of requestProjects | slice: pageIndex*pageSize : (pageIndex+1)* pageSize; track
         requestProject.id) {
-        <app-project-request [projectRequest]="requestProject" (deleteEvent)="delete($event)"
-            (approveEvent)="approve($event)">
+        <app-project-request [projectRequest]="requestProject" (delete)="delete($event)" (approve)="approve($event)">
 
         </app-project-request>
         } @empty {

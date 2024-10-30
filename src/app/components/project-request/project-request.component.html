@@ -44,17 +44,17 @@
             </button>
 
             <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="edit()">
+                <button mat-menu-item (click)="editProjectRequest()">
                     <mat-icon>edit</mat-icon>
                     <span>Editer</span>
                 </button>
-                <button mat-menu-item (click)="delete()">
+                <button mat-menu-item (click)="deleteProjectReques()">
                     <mat-icon>delete</mat-icon>
                     <span>Supprimer</span>
                 </button>
 
                 @if (projectRequest.status !== 'APPROVED') {
-                <button mat-menu-item (click)="approve()">
+                <button mat-menu-item (click)="approveProjectReques()">
                     <mat-icon>done</mat-icon>
                     <span>Approuver</span>
                 </button>

@@ -15,20 +15,20 @@ import { AppFacade } from "./store/app.facade";
   imports: [RequestsPageComponent, ToolbarComponent, MatProgressSpinnerModule],
 })
 export class AppComponent implements OnInit {
-  public app_loading = true;
+  public appLoading = true;
   private appFacade = inject(AppFacade);
 
   ngOnInit(): void {
-    this.checkDarkMode();
+    this.initDarkMode();
     // just wait one secound to simulate data loading
     interval(1000)
       .pipe(take(1))
-      .subscribe(() => (this.app_loading = false));
+      .subscribe(() => (this.appLoading = false));
   }
 
-  checkDarkMode() {
-    let theme = getPref(PrefKeys.THEME) || false;
-    let darkMode = theme && JSON.parse(theme).darkMode;
+  initDarkMode() {
+    let theme: string = getPref(PrefKeys.THEME);
+    let darkMode: boolean = theme != "none" && JSON.parse(theme).darkMode;
     darkMode && this.appFacade.setDarkMode(true);
     document.documentElement.setAttribute(
       "data-theme",
