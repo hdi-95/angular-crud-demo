@@ -16,8 +16,8 @@ import { ProjectRequest } from "../../models/request.model";
 })
 export class ProjectRequestComponent {
   @Input({ required: true }) projectRequest!: ProjectRequest;
-  @Output() delete = new EventEmitter<number>();
-  @Output() approve = new EventEmitter<ProjectRequest>();
+  @Output() deletePR = new EventEmitter<number>();
+  @Output() approvePR = new EventEmitter<ProjectRequest>();
 
   readonly dialog = inject(MatDialog);
 
@@ -28,10 +28,10 @@ export class ProjectRequestComponent {
   }
 
   deleteProjectReques(): void {
-    this.delete.emit(this.projectRequest.id);
+    this.deletePR.emit(this.projectRequest.id);
   }
 
   approveProjectReques(): void {
-    this.approve.emit(this.projectRequest);
+    this.approvePR.emit(this.projectRequest);
   }
 }

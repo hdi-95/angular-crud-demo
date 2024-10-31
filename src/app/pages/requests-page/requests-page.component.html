@@ -16,11 +16,12 @@
     <div class="project-request-list">
         @for (requestProject of requestProjects | slice: pageIndex*pageSize : (pageIndex+1)* pageSize; track
         requestProject.id) {
-        <app-project-request [projectRequest]="requestProject" (delete)="delete($event)" (approve)="approve($event)">
+        <app-project-request [projectRequest]="requestProject" (deletePR)="delete($event)"
+            (approvePR)="approve($event)">
 
         </app-project-request>
         } @empty {
-        <div class="empty-list inter">Aucune demande</div>
+        <div class="empty-list inter">Aucune demande</div>²
         }
 
     </div>

@@ -9,7 +9,7 @@
     une demande d'autorisation</h2>
 <mat-dialog-content class="dialog-content">
 
-    <div [formGroup]="requestFormGroup" class="form-container">
+    <form [formGroup]="requestFormGroup" (keyup.enter)="onEnterPress()" class="form-container">
 
         <mat-form-field appearance="outline">
             <mat-label>Projet de travaux </mat-label>
@@ -26,7 +26,7 @@
             <input matInput formControlName="contract">
         </mat-form-field>
 
-    </div>
+    </form>
 
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-actions">

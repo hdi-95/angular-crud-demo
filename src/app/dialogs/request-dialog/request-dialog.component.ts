@@ -120,4 +120,10 @@ export class RequestDialogComponent implements OnInit {
         this.dialogRef.close();
       });
   }
+
+  onEnterPress() {
+    if (this.requestFormGroup.valid) {
+      this.saveRequest();
+    }
+  }
 }
